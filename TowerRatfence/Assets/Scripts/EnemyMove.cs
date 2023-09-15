@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    private float rand;
     private float spawn;
     private int speed = 2;
     private bool blocked = false;
+    private float[] spawns = {-5f, -3.5f, -2f, -0.5f, 1f};
 
     //Animation Player
     Animator anim;
@@ -17,33 +17,15 @@ public class EnemyMove : MonoBehaviour
     const string PLAYER_MOVE = "move forward";
     const string PLAYER_FLIP = "flip";
 
+    [SerializeField]
+    private GameObject rattricha;
 
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-
+        Debug.Log(spawns.Length);
         //where spawn, spawn good!
-        rand = Random.Range(1, 5);
-        if (rand == 1)
-        {
-            spawn = -5f;
-        }
-        else if (rand == 2)
-        {
-            spawn = -3.5f;
-        }
-        else if (rand == 3)
-        {
-            spawn = -2f;
-        }
-        else if (rand == 4)
-        {
-            spawn = -0.5f;
-        }
-        else if (rand == 5)
-        {
-            spawn = 1f;
-        }
+        spawn = spawns[Random.Range(0, 5)];
         transform.position = new Vector3(12, spawn, 0);
         transform.RotateAround(transform.position, transform.up, 180f);
     }
@@ -73,7 +55,7 @@ public class EnemyMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Tower")
+        if (col.gameObject.CompareTag("Tower"))
         {
             blocked = true;
             ChangeAnimationState(PLAYER_IDLE);
@@ -81,7 +63,7 @@ public class EnemyMove : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Tower")
+        if (col.gameObject.CompareTag("Tower"))
         {
             blocked = false;
             ChangeAnimationState(PLAYER_MOVE);
