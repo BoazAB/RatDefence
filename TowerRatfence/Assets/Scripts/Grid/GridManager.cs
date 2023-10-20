@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField]
-    private int width, height;
+    private int height, width;
 
     [SerializeField]
     private Tile _tilePrefab;
@@ -32,7 +32,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        _cam.transform.position = new Vector3((float)width / 2 -0.5f, (float)height / 2 -0.5f, -10);
+        _cam.transform.position = new Vector3((float)width / 2 - 0.5f, 4.4f, -10);
     }
 }
 
