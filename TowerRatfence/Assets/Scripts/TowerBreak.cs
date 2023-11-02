@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerBreak : MonoBehaviour
 {
     [SerializeField]
-    private float health = 50;
+    private float health = 10;
     private bool rattack;
 
     // Update is called once per frame
@@ -13,7 +13,7 @@ public class TowerBreak : MonoBehaviour
     {
         if (rattack == true)
         {
-            health -= Time.deltaTime;
+            health -= 1 * Time.deltaTime;
         }
         if (health <= 0)
         {
@@ -27,5 +27,12 @@ public class TowerBreak : MonoBehaviour
         {
             rattack = true;
         }   
+    }
+    private void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Rat")
+        {
+            rattack = false;
+        }
     }
 }
