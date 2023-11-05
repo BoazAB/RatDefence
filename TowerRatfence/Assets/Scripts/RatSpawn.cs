@@ -16,9 +16,10 @@ public class RatSpawn : MonoBehaviour
     {
         
     }
-    public void ReRat()
+
+    public void ReRat(GameObject whatRat)
     {
         Instantiate(Rat);
-        Destroy(this.gameObject);
+        Destroy(whatRat);
     }
 }

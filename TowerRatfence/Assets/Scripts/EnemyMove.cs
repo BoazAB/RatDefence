@@ -12,6 +12,7 @@ public class EnemyMove : MonoBehaviour
     private float spawn;
     private float[] spawns = {-0.85f, 0.13f, 1.13f, 2.13f, 3.13f};
     public GameObject Rat;
+    private GameObject manager;
 
     //Animation Player
     Animator anim;
@@ -23,6 +24,8 @@ public class EnemyMove : MonoBehaviour
 
     private void Awake()
     {
+        manager = GameObject.Find("GritManager");
+
         anim = gameObject.GetComponent<Animator>();
 
         //where spawn, spawn good!
@@ -62,7 +65,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Respawn"))
         {
-            gameObject.GetComponent<RatSpawn>().ReRat();
+            manager.GetComponent<RatSpawn>().ReRat(this.gameObject);
         }
     }
     private void OnCollisionExit2D(Collision2D col)
