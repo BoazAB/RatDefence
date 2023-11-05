@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tower
   - Rat
+  - Pew
+  - Floor
   layers:
   - Default
   - TransparentFX

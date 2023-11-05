@@ -11,9 +11,7 @@ public class EnemyMove : MonoBehaviour
     //Spawning
     private float spawn;
     private float[] spawns = {-0.85f, 0.13f, 1.13f, 2.13f, 3.13f};
-
-    [SerializeField]
-    private GameObject Rat;
+    public GameObject Rat;
 
     //Animation Player
     Animator anim;
@@ -23,10 +21,6 @@ public class EnemyMove : MonoBehaviour
     const string PLAYER_MOVE = "move forward";
     const string PLAYER_FLIP = "flip";
 
-    private void Start()
-    {
-    }
-
     private void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -34,11 +28,6 @@ public class EnemyMove : MonoBehaviour
         //where spawn, spawn good!
         spawn = spawns[Random.Range(0, 5)];
         transform.position = new Vector3(20, spawn, 0);
-
-        Debug.Log(spawn + 9);
-        Debug.Log(spawn + 16);
-
-        //transform.position = new Vector3((float)width / 2 - 0.5f, (float)height / 2 - 0.5f, -10);
     }
 
     //changes the animation
@@ -73,8 +62,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Respawn"))
         {
-            Instantiate(Rat);
-            Destroy(this.gameObject);
+            gameObject.GetComponent<RatSpawn>().ReRat();
         }
     }
     private void OnCollisionExit2D(Collision2D col)
