@@ -11,7 +11,6 @@ public class EnemyMove : MonoBehaviour
     //Spawning
     private float spawn;
     private float[] spawns = {-0.85f, 0.13f, 1.13f, 2.13f, 3.13f};
-
     public GameObject Rat;
 
     //Animation Player
@@ -63,8 +62,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Respawn"))
         {
-            RespawnRat();
-            Destroy(gameObject);
+            gameObject.GetComponent<RatSpawn>().ReRat();
         }
     }
     private void OnCollisionExit2D(Collision2D col)
@@ -74,10 +72,5 @@ public class EnemyMove : MonoBehaviour
             blocked = false;
             ChangeAnimationState(PLAYER_MOVE);
         }
-    }
-
-    public void RespawnRat()
-    {
-        Instantiate(Rat);
     }
 }

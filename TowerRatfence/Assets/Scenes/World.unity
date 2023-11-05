@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61765710}
   - component: {fileID: 61765709}
+  - component: {fileID: 61765711}
   m_Layer: 0
   m_Name: GritManager
   m_TagString: Untagged
@@ -172,6 +173,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61765711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61765708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a999b4de0ce5094d8986f79b2ed319c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 5946531072096284315, guid: a79359a9b70e80a4fb762e7eeb85f2b4, type: 3}
+  cooldown: 10
 --- !u!1 &1009426403
 GameObject:
   m_ObjectHideFlags: 0

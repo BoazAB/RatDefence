@@ -16,8 +16,7 @@ public class EnemyHP : MonoBehaviour
         hp -= 1;
         if (hp <= 0)
         {
-            gameObject.GetComponent<EnemyMove>().RespawnRat();
-            Destroy(gameObject);
+            gameObject.GetComponent<RatSpawn>().ReRat();
         }
     }
 }
