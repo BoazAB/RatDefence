@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 61765710}
   - component: {fileID: 61765709}
   - component: {fileID: 61765711}
+  - component: {fileID: 61765712}
   m_Layer: 0
   m_Name: GritManager
   m_TagString: Untagged
@@ -157,7 +158,6 @@ MonoBehaviour:
   width: 18
   _tilePrefab: {fileID: 6181494844312205686, guid: 22175a433bb48a242a99a2563305345c, type: 3}
   _cam: {fileID: 1059609023}
-  Rat: {fileID: 901568575917470263, guid: 8c8d37fe3f6956f47904a962190e24b3, type: 3}
 --- !u!4 &61765710
 Transform:
   m_ObjectHideFlags: 0
@@ -186,7 +186,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 5946531072096284315, guid: a79359a9b70e80a4fb762e7eeb85f2b4, type: 3}
-  cooldown: 10
+  cooldown: 5
+--- !u!114 &61765712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61765708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb8a8235b3d2264bb3294e7bebb1238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rat: {fileID: 901568575917470263, guid: 8c8d37fe3f6956f47904a962190e24b3, type: 3}
+  score: 0
+  hp: 10
 --- !u!1 &1009426403
 GameObject:
   m_ObjectHideFlags: 0

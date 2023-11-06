@@ -13,12 +13,9 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private Transform _cam;
 
-    [SerializeField] private GameObject Rat;
-
     private void Start()
     {
         GenerateGrid();
-        Instantiate(Rat);
     }
 
     void GenerateGrid()

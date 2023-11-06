@@ -65,7 +65,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Respawn"))
         {
-            manager.GetComponent<RatSpawn>().ReRat(this.gameObject);
+            manager.GetComponent<RatSpawn>().ReRat(this.gameObject, false);
         }
     }
     private void OnCollisionExit2D(Collision2D col)
