@@ -18,7 +18,7 @@ public class EnemyHP : MonoBehaviour
         hp -= 1;
         if (hp <= 0)
         {
-            manager.GetComponent<RatSpawn>().ReRat(this.gameObject);
+            manager.GetComponent<RatSpawn>().ReRat(this.gameObject, true);
         }
     }
 }

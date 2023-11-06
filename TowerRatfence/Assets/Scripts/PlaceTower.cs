@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceTower : MonoBehaviour
 {
     [SerializeField] private GameObject tower;
-    [SerializeField] private float cooldown = 10;
+    [SerializeField] private float cooldown = 5;
 
     private void FixedUpdate()
     {
@@ -29,13 +29,15 @@ public class PlaceTower : MonoBehaviour
         {
             Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero, 100);
-            print(hit.transform.position);
-
-            if (cooldown <= 0)
+            if (hit.collider == null)
             {
-                tower.transform.position = hit.transform.position + new Vector3(0,0,-1);
+                return;
+            }
+            if (hit.collider.tag == "Floor" && cooldown <= 0)
+            {
+                tower.transform.position = hit.transform.position + new Vector3(0, 0, -1);
                 Instantiate(tower);
-                cooldown = 10;
+                cooldown = 5;
             }
         }
     }
