@@ -76,6 +76,10 @@ PrefabInstance:
       value: rattricia1 1(coded) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4642177721967643584, guid: 0c1ebe17438dcbd47a5914a6c5a7ec2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4642177721967643584, guid: 0c1ebe17438dcbd47a5914a6c5a7ec2a, type: 3}
       propertyPath: m_TagString
       value: Rat
       objectReference: {fileID: 0}

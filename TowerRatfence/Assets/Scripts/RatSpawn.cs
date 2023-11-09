@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RatSpawn : MonoBehaviour
 {
     public GameObject GameOver;
     public GameObject Rat;
     [SerializeField] private int score;
-    [SerializeField] private int hp = 10;
+    [SerializeField] private int hp;
+    public Text HpText;
+    public Text ScoreText;
 
     private void Start()
     {
         Instantiate(Rat);
+        hp = 10;
     }
 
     private void FixedUpdate()
@@ -19,7 +23,11 @@ public class RatSpawn : MonoBehaviour
         if (hp <= 0)
         {
             GameOver.GetComponent<GameOverScreen>().GameOver(score);
+            HpText.gameObject.SetActive(false);
+            ScoreText.gameObject.SetActive(false);
         }
+        HpText.text = hp + " HP";
+        ScoreText.text = score + " Score";
     }
 
     public void ReRat(GameObject whatRat, bool good)
